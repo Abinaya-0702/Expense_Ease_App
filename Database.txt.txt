@@ -1,0 +1,85 @@
+import React, { useState } from 'react';
+import { View, TextInput, Button, Alert } from 'react-native';
+import DropDownPicker from 'react-native-dropdown-picker';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
+
+const firebaseConfig = {
+  apiKey: 'abcd1234’,
+  authDomain: ExpenseEase',
+  databaseURL: 'Expense.Ease',
+  projectId: ‘458729’,
+  storageBucket: ‘Firebase',
+  messagingSenderId: '12548',
+  appId: '1458763@1635',
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+const categories = ['food', 'clothes', 'transportation', 'bills', 'others'];
+const paymentModes = ['cash', 'upi', 'internet banking', 'credit card', 'debit card'];
+
+const ExpenseScreen = () => {
+  const [category, setCategory] = useState('food');
+  const [paidTo, setPaidTo] = useState('');
+  const [date, setDate] = useState('');
+  const [paymentMode, setPaymentMode] = useState('cash');
+
+  const addExpense = () => {
+    const user = firebase.auth().currentUser;
+    if (user) {
+      firebase
+        .database()
+        .ref(`expenses/${user.uid}`)
+        .push({
+          category,
+          paidTo,
+          date,
+          paymentMode,
+        })
+        .then(() => {
+          Alert.alert('Success', 'Expense added successfully');
+        })
+        .catch((error) => {
+          Alert.alert('Error', error.message);
+        });
+    } else {
+      Alert.alert('Error', 'User not authenticated');
+    }
+  };
+
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', padding: 16 }}>
+      <DropDownPicker
+        items={categories.map((cat) => ({ label: cat, value: cat }))}
+        defaultValue={category}
+        containerStyle={{ height: 40, marginVertical: 10 }}
+        onChangeItem={(item) => setCategory(item.value)}
+      />
+      <TextInput
+        placeholder="Paid To"
+        value={paidTo}
+        onChangeText={(text) => setPaidTo(text)}
+        style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginVertical: 10, padding: 10 }}
+      />
+      <TextInput
+        placeholder="Date"
+        value={date}
+        onChangeText={(text) => setDate(text)}
+        style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginVertical: 10, padding: 10 }}
+      />
+      <DropDownPicker
+        items={paymentModes.map((mode) => ({ label: mode, value: mode }))}
+        defaultValue={paymentMode}
+        containerStyle={{ height: 40, marginVertical: 10 }}
+        onChangeItem={(item) => setPaymentMode(item.value)}
+      />
+      <Button title="Add Transaction" onPress={addExpense} />
+    </View>
+  );
+};
+
+export default ExpenseScreen;
