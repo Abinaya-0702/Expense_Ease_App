@@ -1,16 +1,29 @@
-<<<<<<< HEAD
 # Expense_Ease_App
 An expense management app
-=======
-# Sample Snack app
+![image (3)](https://github.com/Abinaya-0702/Expense_Ease_App/assets/100523412/6ea51062-94ac-4286-a055-a08fc7c59797)
+![image](https://github.com/Abinaya-0702/Expense_Ease_App/assets/100523412/f7411220-3a42-4814-a7b6-e9ceb7fe0f75)
+<img width="154" alt="image" src="https://github.com/Abinaya-0702/Expense_Ease_App/assets/100523412/de781338-e14c-42a3-a1ad-8099ab1eb6dc">
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
+![image (4)](https://github.com/Abinaya-0702/Expense_Ease_App/assets/100523412/b43e2616-435e-46be-b5ac-dbd85b35e5f7)
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo cli](https://docs.expo.dev/get-started/installation/#expo-cli)).
+# App Functionality:
+Our app, The ExpenseEase, aims to simplify tracking of finances. Users can log in, explore the homepage featuring a pie chart showcasing monthly expenses and a graph showing the yearly expenses and effortlessly record new transactions with key details.
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
+Our app features a login screen for entering your username and password. Once logged in, you're taken to the homepage, where you can view an informative pie chart displaying a breakdown of your monthly expenses, slide to see the graph showcasing the yearly expenses. Categories such as food, clothing, transportation, bills, and miscellaneous expenditures are represented, giving you a clear visual ratio of your spending.
 
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.dev/c/expo-dev-tools/61) or [Discord](https://chat.expo.dev/).
+If you wish to add a new expense, simply click the plus button at the bottom of the screen to access the 'Add Expense' page. Here, you can input the amount, specify the transaction category, select the payee, enter the date, and choose your preferred payment mode. After entering these details, you can save the transaction, effortlessly managing your expenses within the app.
 
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
->>>>>>> 70c7138 (last commit)
+# Design Inspirations:
+DESIGN INSPIRATIONS
+1.	https://www.cashify.in/best-expense-tracker-apps
+We drew some inspiration from number 3 on this list, as the colour scheme and composition seemed great. 
+2.	https://www.matellio.com/blog/develop-app-like-my-income/
+We got the idea to divide it into categories from this particular app. 
+3.	https://design.rip/flux---expense-management-ui-kit
+We loved the simplicity of this app
+4.	https://in.pinterest.com/pin/612419249324114710/
+while this design helped us finalize the placement of the icons, and overall design. 
+5.	https://in.pinterest.com/pin/774900679653742645/
+And finally, this design lead us to decide the monochrome theme of our app.
+
+
